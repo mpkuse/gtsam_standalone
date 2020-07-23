@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/2_CameraResectioning.dir/cpp/2_CameraResectioning.cpp.o  -o 2_CameraResectioning -Wl,-rpath,/usr/local/lib /usr/local/lib/libgtsam.so.4.0.0 -lboost_serialization -lboost_system -lboost_filesystem -lboost_thread -lboost_date_time -lboost_timer -lboost_chrono /usr/local/lib/libmetis.so -lm 
