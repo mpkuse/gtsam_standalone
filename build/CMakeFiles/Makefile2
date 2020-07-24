@@ -60,13 +60,50 @@ CMAKE_SOURCE_DIR = /home/manohar/try/gtsam_standalone
 CMAKE_BINARY_DIR = /home/manohar/try/gtsam_standalone/build
 
 #=============================================================================
+# Target rules for target CMakeFiles/1_fitline.dir
+
+# All Build rule for target.
+CMakeFiles/1_fitline.dir/all:
+	$(MAKE) -f CMakeFiles/1_fitline.dir/build.make CMakeFiles/1_fitline.dir/depend
+	$(MAKE) -f CMakeFiles/1_fitline.dir/build.make CMakeFiles/1_fitline.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/manohar/try/gtsam_standalone/build/CMakeFiles --progress-num=3,4 "Built target 1_fitline"
+.PHONY : CMakeFiles/1_fitline.dir/all
+
+# Include target in all.
+all: CMakeFiles/1_fitline.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/1_fitline.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/manohar/try/gtsam_standalone/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/1_fitline.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/manohar/try/gtsam_standalone/build/CMakeFiles 0
+.PHONY : CMakeFiles/1_fitline.dir/rule
+
+# Convenience name for target.
+1_fitline: CMakeFiles/1_fitline.dir/rule
+
+.PHONY : 1_fitline
+
+# clean rule for target.
+CMakeFiles/1_fitline.dir/clean:
+	$(MAKE) -f CMakeFiles/1_fitline.dir/build.make CMakeFiles/1_fitline.dir/clean
+.PHONY : CMakeFiles/1_fitline.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/1_fitline.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/2_CameraResectioning.dir
 
 # All Build rule for target.
 CMakeFiles/2_CameraResectioning.dir/all:
 	$(MAKE) -f CMakeFiles/2_CameraResectioning.dir/build.make CMakeFiles/2_CameraResectioning.dir/depend
 	$(MAKE) -f CMakeFiles/2_CameraResectioning.dir/build.make CMakeFiles/2_CameraResectioning.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/manohar/try/gtsam_standalone/build/CMakeFiles --progress-num=3,4 "Built target 2_CameraResectioning"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/manohar/try/gtsam_standalone/build/CMakeFiles --progress-num=5,6 "Built target 2_CameraResectioning"
 .PHONY : CMakeFiles/2_CameraResectioning.dir/all
 
 # Include target in all.
@@ -140,7 +177,7 @@ clean: CMakeFiles/1_SimpleRotation.dir/clean
 CMakeFiles/5_OdometryExample.dir/all:
 	$(MAKE) -f CMakeFiles/5_OdometryExample.dir/build.make CMakeFiles/5_OdometryExample.dir/depend
 	$(MAKE) -f CMakeFiles/5_OdometryExample.dir/build.make CMakeFiles/5_OdometryExample.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/manohar/try/gtsam_standalone/build/CMakeFiles --progress-num=9,10 "Built target 5_OdometryExample"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/manohar/try/gtsam_standalone/build/CMakeFiles --progress-num=11,12 "Built target 5_OdometryExample"
 .PHONY : CMakeFiles/5_OdometryExample.dir/all
 
 # Include target in all.
@@ -177,7 +214,7 @@ clean: CMakeFiles/5_OdometryExample.dir/clean
 CMakeFiles/ImuFactorsExample.dir/all:
 	$(MAKE) -f CMakeFiles/ImuFactorsExample.dir/build.make CMakeFiles/ImuFactorsExample.dir/depend
 	$(MAKE) -f CMakeFiles/ImuFactorsExample.dir/build.make CMakeFiles/ImuFactorsExample.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/manohar/try/gtsam_standalone/build/CMakeFiles --progress-num=11,12 "Built target ImuFactorsExample"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/manohar/try/gtsam_standalone/build/CMakeFiles --progress-num=13,14 "Built target ImuFactorsExample"
 .PHONY : CMakeFiles/ImuFactorsExample.dir/all
 
 # Include target in all.
@@ -214,7 +251,7 @@ clean: CMakeFiles/ImuFactorsExample.dir/clean
 CMakeFiles/3_StereoVOExample.dir/all:
 	$(MAKE) -f CMakeFiles/3_StereoVOExample.dir/build.make CMakeFiles/3_StereoVOExample.dir/depend
 	$(MAKE) -f CMakeFiles/3_StereoVOExample.dir/build.make CMakeFiles/3_StereoVOExample.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/manohar/try/gtsam_standalone/build/CMakeFiles --progress-num=5,6 "Built target 3_StereoVOExample"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/manohar/try/gtsam_standalone/build/CMakeFiles --progress-num=7,8 "Built target 3_StereoVOExample"
 .PHONY : CMakeFiles/3_StereoVOExample.dir/all
 
 # Include target in all.
@@ -251,7 +288,7 @@ clean: CMakeFiles/3_StereoVOExample.dir/clean
 CMakeFiles/4_LocalizationExample.dir/all:
 	$(MAKE) -f CMakeFiles/4_LocalizationExample.dir/build.make CMakeFiles/4_LocalizationExample.dir/depend
 	$(MAKE) -f CMakeFiles/4_LocalizationExample.dir/build.make CMakeFiles/4_LocalizationExample.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/manohar/try/gtsam_standalone/build/CMakeFiles --progress-num=7,8 "Built target 4_LocalizationExample"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/manohar/try/gtsam_standalone/build/CMakeFiles --progress-num=9,10 "Built target 4_LocalizationExample"
 .PHONY : CMakeFiles/4_LocalizationExample.dir/all
 
 # Include target in all.

@@ -119,6 +119,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/1_fitline.dir/DependInfo.cmake"
   "CMakeFiles/2_CameraResectioning.dir/DependInfo.cmake"
   "CMakeFiles/1_SimpleRotation.dir/DependInfo.cmake"
   "CMakeFiles/5_OdometryExample.dir/DependInfo.cmake"

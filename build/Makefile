@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named 1_fitline
+
+# Build rule for target.
+1_fitline: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 1_fitline
+.PHONY : 1_fitline
+
+# fast build rule for target.
+1_fitline/fast:
+	$(MAKE) -f CMakeFiles/1_fitline.dir/build.make CMakeFiles/1_fitline.dir/build
+.PHONY : 1_fitline/fast
+
+#=============================================================================
 # Target rules for targets named 2_CameraResectioning
 
 # Build rule for target.
@@ -350,6 +363,33 @@ cpp/ImuFactorsExample.cpp.s:
 	$(MAKE) -f CMakeFiles/ImuFactorsExample.dir/build.make CMakeFiles/ImuFactorsExample.dir/cpp/ImuFactorsExample.cpp.s
 .PHONY : cpp/ImuFactorsExample.cpp.s
 
+custom_factors/1_fitline.o: custom_factors/1_fitline.cpp.o
+
+.PHONY : custom_factors/1_fitline.o
+
+# target to build an object file
+custom_factors/1_fitline.cpp.o:
+	$(MAKE) -f CMakeFiles/1_fitline.dir/build.make CMakeFiles/1_fitline.dir/custom_factors/1_fitline.cpp.o
+.PHONY : custom_factors/1_fitline.cpp.o
+
+custom_factors/1_fitline.i: custom_factors/1_fitline.cpp.i
+
+.PHONY : custom_factors/1_fitline.i
+
+# target to preprocess a source file
+custom_factors/1_fitline.cpp.i:
+	$(MAKE) -f CMakeFiles/1_fitline.dir/build.make CMakeFiles/1_fitline.dir/custom_factors/1_fitline.cpp.i
+.PHONY : custom_factors/1_fitline.cpp.i
+
+custom_factors/1_fitline.s: custom_factors/1_fitline.cpp.s
+
+.PHONY : custom_factors/1_fitline.s
+
+# target to generate assembly for a file
+custom_factors/1_fitline.cpp.s:
+	$(MAKE) -f CMakeFiles/1_fitline.dir/build.make CMakeFiles/1_fitline.dir/custom_factors/1_fitline.cpp.s
+.PHONY : custom_factors/1_fitline.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -357,6 +397,7 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
+	@echo "... 1_fitline"
 	@echo "... 2_CameraResectioning"
 	@echo "... 1_SimpleRotation"
 	@echo "... 5_OdometryExample"
@@ -382,6 +423,9 @@ help:
 	@echo "... cpp/ImuFactorsExample.o"
 	@echo "... cpp/ImuFactorsExample.i"
 	@echo "... cpp/ImuFactorsExample.s"
+	@echo "... custom_factors/1_fitline.o"
+	@echo "... custom_factors/1_fitline.i"
+	@echo "... custom_factors/1_fitline.s"
 .PHONY : help
 
 
