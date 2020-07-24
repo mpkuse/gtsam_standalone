@@ -37,5 +37,11 @@ add_executable( ImuFactorsExample cpp/ImuFactorsExample.cpp )
 target_link_libraries( ImuFactorsExample  gtsam )
 
 
-add_executable( 1_fitline custom_factors/1_fitline.cpp )
-target_link_libraries( 1_fitline  gtsam )
+
+#### Custom factors 
+add_executable( 1_fit_h_eq_y_minus_ax custom_factors/1_fit_h_eq_y_minus_ax.cpp )
+target_link_libraries( 1_fit_h_eq_y_minus_ax  gtsam )
+
+
+add_executable( 2_fit_y_eq_ax_plus_b custom_factors/2_fit_y_eq_ax_plus_b.cpp )
+target_link_libraries( 2_fit_y_eq_ax_plus_b  gtsam )

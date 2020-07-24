@@ -1,9 +1,0 @@
-/home/manohar/try/gtsam_standalone/build/CMakeFiles/rebuild_cache.dir
-/home/manohar/try/gtsam_standalone/build/CMakeFiles/1_fitline.dir
-/home/manohar/try/gtsam_standalone/build/CMakeFiles/2_CameraResectioning.dir
-/home/manohar/try/gtsam_standalone/build/CMakeFiles/1_SimpleRotation.dir
-/home/manohar/try/gtsam_standalone/build/CMakeFiles/5_OdometryExample.dir
-/home/manohar/try/gtsam_standalone/build/CMakeFiles/ImuFactorsExample.dir
-/home/manohar/try/gtsam_standalone/build/CMakeFiles/edit_cache.dir
-/home/manohar/try/gtsam_standalone/build/CMakeFiles/3_StereoVOExample.dir
-/home/manohar/try/gtsam_standalone/build/CMakeFiles/4_LocalizationExample.dir

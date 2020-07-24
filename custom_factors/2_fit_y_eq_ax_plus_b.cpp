@@ -13,36 +13,6 @@ using namespace std;
 
 using namespace gtsam;
 
-//  this is the type of optimization variable
-//                                          vvvvv
-class LinearFactor: public NoiseModelFactor1<double> {
-    typedef NoiseModelFactor1<double> Base;
-
-    // measurements
-    double x;
-    double y;
-
-public:
-    LinearFactor(
-        const SharedNoiseModel& model,  ///< Noise model (related ti weighting)
-        const Key& key, ///< optimization variable
-        const double _x, const double _y ///< observations
-    ): Base(model,key), x(_x), y(_y) {
-
-    }
-
-
-
-    // evaluate error
-    virtual Vector evaluateError(const double& a, boost::optional<Matrix&> H =
-        boost::none) const {
-
-        if( H ) *H = ( Vector(1) << -x ).finished() ;
-
-        return ( Vector(1) << y - a*x ).finished();
-    }
-
-};
 
 void generate_data( int N, vector<double>& x, vector<double>& y )
 {
@@ -64,6 +34,7 @@ void generate_data( int N, vector<double>& x, vector<double>& y )
     for( int i=0 ; i<N ; i++ )
     {
         noise = dist( generator );
+        noise = 0.0;
         double _x = drand48() * 100;
         double _y = secret_a * _x + secret_b + noise;
 
@@ -71,13 +42,53 @@ void generate_data( int N, vector<double>& x, vector<double>& y )
     }
 }
 
+
+//  this is the type of optimization variable
+//                                          vvvvv
+class LinearFactor: public NoiseModelFactor1<Vector2> {
+    typedef NoiseModelFactor1<Vector2> Base;
+
+    // measurements
+    double x;
+    double y;
+
+public:
+    LinearFactor(
+        const SharedNoiseModel& model,  ///< Noise model (related ti weighting)
+        const Key& key, ///< optimization variable
+        const double _x, const double _y ///< observations
+    ): Base(model,key), x(_x), y(_y) {
+
+    }
+
+
+
+    // evaluate error
+    // a is the optimization variable
+    virtual Vector evaluateError(const Vector2& a, boost::optional<Matrix&> H =
+        boost::none) const {
+
+
+            // jacobian should have same number of rows as the residue. cols of jacobian
+            // need to be equal to the dim of opt variables.
+            // del_h/del_a = [ del_h/del_a0, del_h/del_a1 ]  //1x2
+        if( H ) *H = ( Vector(2) << -x, -1.0 ).finished().transpose() ;
+
+        // h(q) = y - a(0) * x - a(1) // scalar
+        return ( Vector(1) << y - a(0)*x - a(1) ).finished();
+    }
+
+};
+
+
 int main()
 {
-    cout << "1 fitline....given several (x_i,y_i), try to fit y=ax\n";
+    cout << "2 fitline....given several (x_i,y_i), try to fit y=ax+b\n";
 
     cout << "---generate_data\n";
     vector<double> x, y;
     generate_data( 10, x, y );
+
 
 
     // create graph
@@ -94,7 +105,7 @@ int main()
         graph.emplace_shared<LinearFactor>( measurementNoise, key, x[i], y[i]  );
 
     Values initial;
-    initial.insert( key, 3.0  );
+    initial.insert( key, (Vector(2) << 2.0, 2.0).finished()  );
     cout << "---initial estimate " << endl;
     initial.print( "initial estimates:\n");
 
