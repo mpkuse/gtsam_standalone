@@ -19,10 +19,10 @@ void generate_data( int N, vector<double>& x, vector<double>& y )
     x.clear(); y.clear();
 
     double secret_a = 12.0;
-    double secret_b = 0.0; //1.0;
+    double secret_b = 1.0; //1.0;
 
     std::default_random_engine generator;
-    double mean = 0.0, stddev = 5;
+    double mean = 0.0, stddev = 3;
     std::normal_distribution<double> dist(mean, stddev);
     double noise = 0.0;
 
@@ -34,7 +34,7 @@ void generate_data( int N, vector<double>& x, vector<double>& y )
     for( int i=0 ; i<N ; i++ )
     {
         noise = dist( generator );
-        noise = 0.0;
+        // noise = 0.0;
         double _x = drand48() * 100;
         double _y = secret_a * _x + secret_b + noise;
 
@@ -65,6 +65,7 @@ public:
 
     // evaluate error
     // a is the optimization variable
+    // H: jacobian of error function wrt a. 
     virtual Vector evaluateError(const Vector2& a, boost::optional<Matrix&> H =
         boost::none) const {
 
@@ -96,7 +97,7 @@ int main()
 
 
     // SharedDiagonal measurementNoise = gtsam::noiseModel::Diagonal::Sigmas(Vector2(0.5, 0.5));
-    SharedDiagonal measurementNoise = gtsam::noiseModel::Isotropic::Sigma(1, 0.5);
+    SharedDiagonal measurementNoise = gtsam::noiseModel::Isotropic::Sigma(1, 3 );
 
     // add factor to graph
     Symbol key('a', 1);

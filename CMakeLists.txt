@@ -38,10 +38,14 @@ target_link_libraries( ImuFactorsExample  gtsam )
 
 
 
-#### Custom factors 
+#### Custom factors
 add_executable( 1_fit_h_eq_y_minus_ax custom_factors/1_fit_h_eq_y_minus_ax.cpp )
 target_link_libraries( 1_fit_h_eq_y_minus_ax  gtsam )
 
 
 add_executable( 2_fit_y_eq_ax_plus_b custom_factors/2_fit_y_eq_ax_plus_b.cpp )
 target_link_libraries( 2_fit_y_eq_ax_plus_b  gtsam )
+
+
+add_executable( 3_fit_pose custom_factors/3_fit_pose.cpp )
+target_link_libraries( 3_fit_pose  gtsam )
