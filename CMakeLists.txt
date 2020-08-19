@@ -52,8 +52,12 @@ target_link_libraries( 3_fit_pose  gtsam )
 
 
 ##### Expression Factors (gtsam4)
-add_executable( 1_exp2dslam expression_factors/1_exp2dslam.cpp )
-target_link_libraries( 1_exp2dslam  gtsam )
+add_executable( 1_expfac_2dslam expression_factors/1_expfac_2dslam.cpp )
+target_link_libraries( 1_expfac_2dslam  gtsam )
 
-add_executable( 2_fitpos2 expression_factors/2_fitpos2.cpp )
-target_link_libraries( 2_fitpos2  gtsam )
+add_executable( 2_expfac_fitpos2 expression_factors/2_expfac_fitpos2.cpp )
+target_link_libraries( 2_expfac_fitpos2  gtsam )
+
+
+add_executable( 3_expfac_exponentiallinearfit expression_factors/3_expfac_exponentiallinearfit.cpp )
+target_link_libraries( 3_expfac_exponentiallinearfit  gtsam )

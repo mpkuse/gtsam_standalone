@@ -1,5 +1,6 @@
-// given observations (x0,y0), (x1,y1), ..., (xn,yn) fit for params a, b
-//      y = exp( ax+ b )
+// given 2 point sets X=[(x0,y0), (x1,y1), ..., (xn,yn)] and
+//                    Y=[(x0,y0), (x1,y1), ..., (xn,yn)]
+// fit a pose such that Y = Tr * X
 #include<iostream>
 #include <vector>
 #include <random>
@@ -41,7 +42,8 @@ void generate_data( int N, vector<Point2>& X )
 
 void secret_transform( const vector<Point2>& X, vector<Point2>& Y )
 {
-    Pose2 secret_transform( 0.5, 0, 0 );
+    Pose2 secret_transform( 0.5, 0, M_PI_4 );
+    secret_transform.print( "secret_transform: ");
 
     Y.clear();
     for( int i=0 ; i<X.size() ; i++ )
@@ -72,43 +74,62 @@ Point2 residue( const Pose2& Tr, const Point2 p,
         OptionalJacobian<2, 2> H_p = boost::none
     )
 {
-    return Tr.transform_to( p, H_Tr, H_p);
+    return Tr.transform_from( p, H_Tr, H_p);
     // return Tr * p;
 }
 
+
+void eval( const vector<Point2>& X, const vector<Point2>& Y, const Pose2& Tr )
+{
+    for( int i=0 ; i<X.size() ; i++ )
+    {
+        Point2 r = Y[i] - residue( Tr, X[i] );
+        cout << "residue["<< i << "]=" << r << endl;
+    }
+}
 
 int main()
 {
     // generate data
     vector<Point2>X, Y;
-    int N=5;
+    int N=25;
     generate_data( N, X );
     secret_transform( X, Y );
 
     print_vec( "X", X );
     print_vec( "Y", Y );
+    cout << "---\n";
 
 
     // gtsam defs
     ExpressionFactorGraph graph;
     Expression<Pose2> T('T'); // opt variable
 
+    // add expression factors to the graph
     auto n_model = noiseModel::Diagonal::Sigmas( Vector2(0.2,0.2) ); //< note that these noise factors depend on dimension of residue function
     for( int i=0 ; i<N; i++ )
     {
         auto h = Expression<Point2>( &residue, T, Expression<Point2>(X[i]) );
+        //                  ^^^type of output of the function that is to be wraped.
         graph.addExpressionFactor( h, Y[i], n_model );
     }
-    graph.print( "Factor graph:\n");
+    // graph.print( "Factor graph:\n");
 
 
+    // initial estimates 
     Values initialEstimate;
-    initialEstimate.insert( 'T', Pose2(0,0,0) );
+    Pose2 initial_Tr =  Pose2(0.4,0.1,M_PI_4 - 0.05);
+    initialEstimate.insert( 'T', initial_Tr );
     initialEstimate.print( "initialEstimate:\n");
+    eval( X, Y, initial_Tr );
 
     // solver
     GaussNewtonOptimizer optimizer( graph, initialEstimate );
     Values result = optimizer.optimize();
     result.print( "Final result:\n" );
+
+    // retrive result
+    Pose2 final_Tr = result.at<Pose2>( 'T' );
+    eval( X, Y, final_Tr );
 
 }
