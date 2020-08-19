@@ -49,3 +49,11 @@ target_link_libraries( 2_fit_y_eq_ax_plus_b  gtsam )
 
 add_executable( 3_fit_pose custom_factors/3_fit_pose.cpp )
 target_link_libraries( 3_fit_pose  gtsam )
+
+
+##### Expression Factors (gtsam4)
+add_executable( 1_exp2dslam expression_factors/1_exp2dslam.cpp )
+target_link_libraries( 1_exp2dslam  gtsam )
+
+add_executable( 2_fitpos2 expression_factors/2_fitpos2.cpp )
+target_link_libraries( 2_fitpos2  gtsam )
