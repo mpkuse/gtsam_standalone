@@ -61,3 +61,7 @@ target_link_libraries( 2_expfac_fitpos2  gtsam )
 
 add_executable( 3_expfac_exponentiallinearfit expression_factors/3_expfac_exponentiallinearfit.cpp )
 target_link_libraries( 3_expfac_exponentiallinearfit  gtsam )
+
+
+add_executable( 4_axxb expression_factors/4_axxb.cpp )
+target_link_libraries( 4_axxb  gtsam )

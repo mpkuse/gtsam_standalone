@@ -116,7 +116,7 @@ int main()
     // graph.print( "Factor graph:\n");
 
 
-    // initial estimates 
+    // initial estimates
     Values initialEstimate;
     Pose2 initial_Tr =  Pose2(0.4,0.1,M_PI_4 - 0.05);
     initialEstimate.insert( 'T', initial_Tr );
