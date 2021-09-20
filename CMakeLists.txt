@@ -65,3 +65,11 @@ target_link_libraries( 3_expfac_exponentiallinearfit  gtsam )
 
 add_executable( 4_axxb expression_factors/4_axxb.cpp )
 target_link_libraries( 4_axxb  gtsam )
+
+
+#### JLblanco 
+add_executable( jlblanco_1 jlblanco/1.cpp )
+target_link_libraries( jlblanco_1  gtsam )
+
+add_executable( jlblanco_2 jlblanco/2.cpp )
+target_link_libraries( jlblanco_2  gtsam )
