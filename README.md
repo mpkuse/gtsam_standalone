@@ -3,6 +3,7 @@
 https://github.com/borglab/gtsam/blob/develop/examples <br/>
 https://github.com/dongjing3309/gtsam-examples <br/>
 https://github.com/uzh-rpg/rpg_svo_pro_open/tree/master/svo_global_map/include/svo/gtsam <br/>
+https://github.com/MIT-SPARK/Kimera-VIO/tree/master/include/kimera-vio/factors <br/>
 
 
 ## GTSAM Learning Material
